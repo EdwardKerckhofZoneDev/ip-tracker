@@ -32,7 +32,7 @@ export default defineComponent({
       await loader.load()
       map.value = new google.maps.Map(mapRef.value as HTMLDivElement, {
         center,
-        zoom: 10
+        zoom: 13
       })
       marker.value = new google.maps.Marker({
         position: center,
