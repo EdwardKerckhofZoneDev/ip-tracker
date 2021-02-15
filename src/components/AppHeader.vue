@@ -1,5 +1,5 @@
 <template>
-  <div class="header h-1/4 bg-header-pattern bg-cover bg-no-repeat bg-center">
+  <div class="header h-80 bg-header-pattern bg-cover bg-no-repeat bg-center">
     <ip-tracker />
   </div>
 </template>

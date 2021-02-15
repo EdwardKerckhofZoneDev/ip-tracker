@@ -4,7 +4,7 @@
   >
     <div class="info">
       <h5 class="info-title">Ip address</h5>
-      <h2 class="info-desc">192.212.174.101</h2>
+      <h2 class="info-desc">{{ ipStore.IP }}</h2>
     </div>
     <div class="info">
       <h5 class="info-title">Location</h5>
@@ -23,8 +23,15 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { useIpStore } from '@/store/ip'
 
 export default defineComponent({
-  name: 'IpInfo'
+  name: 'IpInfo',
+
+  setup() {
+    const ipStore = useIpStore()
+
+    return { ipStore }
+  }
 })
 </script>

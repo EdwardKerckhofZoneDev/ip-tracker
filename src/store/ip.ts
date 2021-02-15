@@ -11,6 +11,9 @@ export const useIpStore = defineStore({
     }
   },
   actions: {
+    setIpAddress(newIP: string) {
+      this.ipaddress = newIP
+    },
     reset() {
       this.ipaddress = ''
     }

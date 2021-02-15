@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen bg-gray-100">
+  <div class="h-screen bg-gray-100 overflow-x-hidden">
     <app-header />
     <div class="-mt-24 h-3/4">
       <ip-info />

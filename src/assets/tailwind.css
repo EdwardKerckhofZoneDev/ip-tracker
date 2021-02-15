@@ -28,5 +28,5 @@
 
 .info-desc {
   @apply font-medium;
-  @apply text-3xl;
+  @apply text-2xl;
 }

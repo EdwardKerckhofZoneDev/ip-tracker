@@ -1,5 +1,5 @@
 <template>
-  <div ref="mapRef" class="h-full w-full bg-red-500 -mt-24 relative"></div>
+  <div ref="mapRef" class="map w-full -mt-24 relative"></div>
 </template>
 
 <script lang="ts">
@@ -44,3 +44,9 @@ export default defineComponent({
   }
 })
 </script>
+
+<style lang="scss" scoped>
+.map {
+  height: calc(100vh - 17rem);
+}
+</style>

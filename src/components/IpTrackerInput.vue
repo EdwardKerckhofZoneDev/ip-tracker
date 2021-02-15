@@ -17,15 +17,28 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
+import { useIpStore } from '@/store/ip'
 
 export default defineComponent({
   name: 'IpTrackerInput',
 
   setup() {
     const ipAddress = ref('')
+    const ipStore = useIpStore()
 
     const search = () => {
-      console.log(ipAddress.value)
+      if (!ipAddress.value) {
+        alert('Not a valid input')
+        return
+      }
+
+      if (!/^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/.test(ipAddress.value)) {
+        alert('Not a valid input')
+        ipAddress.value = ''
+        return
+      }
+
+      ipStore.setIpAddress(ipAddress.value)
     }
 
     return { search, ipAddress }
