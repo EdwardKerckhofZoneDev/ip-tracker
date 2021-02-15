@@ -4,22 +4,19 @@
 
 <script lang="ts">
 /* eslint-disable no-undef */
-import { defineComponent, onMounted, ref } from 'vue'
+import { computed, defineComponent, onMounted, ref, watch } from 'vue'
 import { Loader } from '@googlemaps/js-api-loader'
-
-// Center of the world
-const center = {
-  lat: 40.712743,
-  lng: -74.013379
-}
+import { useIpStore } from '@/store/ip'
 
 export default defineComponent({
   name: 'Maps',
 
   setup() {
+    const ipStore = useIpStore()
+
     // Google maps loader
     const loader = new Loader({
-      apiKey: process.env.VUE_APP_MAPS_API_KEY || ''
+      apiKey: 'AIzaSyAbph0kVAo3u_5dzxzNQvDCyFvoEtjDk7Q'
     })
     // Map ref
     const mapRef = ref<HTMLDivElement | null>(null)
@@ -28,16 +25,42 @@ export default defineComponent({
     // Map marker
     const marker = ref<google.maps.Marker | null>(null)
 
+    const lat = computed(() => {
+      return ipStore.LOCATION.lat
+    })
+    const lng = computed(() => {
+      return ipStore.LOCATION.lng
+    })
+
     onMounted(async () => {
       await loader.load()
       map.value = new google.maps.Map(mapRef.value as HTMLDivElement, {
-        center,
+        center: {
+          lat: lat.value,
+          lng: lng.value
+        },
         zoom: 13
       })
       marker.value = new google.maps.Marker({
-        position: center,
+        position: {
+          lat: lat.value,
+          lng: lng.value
+        },
         map: map.value
       })
+    })
+
+    watch([lat, lng], () => {
+      if (map.value && marker.value) {
+        map.value.setCenter({ lat: lat.value, lng: lng.value })
+        marker.value = new google.maps.Marker({
+          position: {
+            lat: lat.value,
+            lng: lng.value
+          },
+          map: map.value
+        })
+      }
     })
 
     return { mapRef }

@@ -3,7 +3,7 @@
     <input
       type="text"
       v-model="ipAddress"
-      placeholder="127.0.0.1"
+      placeholder="8.8.8.8"
       class="px-7 py-5 rounded-l-2xl text-base flex-1 outline-none"
     />
     <button
@@ -17,7 +17,8 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-import { useIpStore } from '@/store/ip'
+import { Location, useIpStore } from '@/store/ip'
+import axios from 'axios'
 
 export default defineComponent({
   name: 'IpTrackerInput',
@@ -26,7 +27,7 @@ export default defineComponent({
     const ipAddress = ref('')
     const ipStore = useIpStore()
 
-    const search = () => {
+    const search = async () => {
       if (!ipAddress.value) {
         alert('Not a valid input')
         return
@@ -39,6 +40,25 @@ export default defineComponent({
       }
 
       ipStore.setIpAddress(ipAddress.value)
+      ipStore.setLoading(true)
+
+      const { data } = await axios.get(
+        `https://geo.ipify.org/api/v1?apiKey=at_DUYNdic3iCfeYojLoxikPVQ4uXmpb&ipAddress=${ipAddress.value}`
+      )
+
+      const ipLocation: Location = {
+        city: data.location.city,
+        region: data.location.region,
+        postalCode: data.location.postalCode,
+        timezone: data.location.timezone,
+        isp: data.isp,
+        lat: data.location.lat,
+        lng: data.location.lng
+      }
+
+      ipStore.setLocation(ipLocation)
+
+      ipStore.setLoading(false)
     }
 
     return { search, ipAddress }
