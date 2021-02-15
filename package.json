@@ -2,6 +2,11 @@
   "name": "vue3-ip-tracker",
   "version": "0.1.0",
   "private": true,
+  "description": "Simple IP-tracking Electron app",
+  "author": {
+    "email": "edward@zonedev.be",
+    "name": "Edward Kerckhof"
+  },
   "scripts": {
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -12,6 +17,14 @@
     "postuninstall": "electron-builder install-app-deps"
   },
   "main": "background.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EdwardKerckhofZoneDev/ip-tracker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/EdwardKerckhofZoneDev/ip-tracker/issues"
+  },
+  "homepage": "https://github.com/EdwardKerckhofZoneDev/ip-tracker#readme",
   "dependencies": {
     "@googlemaps/js-api-loader": "^1.11.1",
     "@tailwindcss/postcss7-compat": "^2.0.2",
