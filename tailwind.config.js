@@ -11,7 +11,7 @@ module.exports = {
       md: '768px',
       lg: '1024px',
       xl: '1280px',
-      '2xl': '1536px'
+      '2xl': '1400px'
     },
     colors: {
       transparent: 'transparent',
@@ -85,7 +85,9 @@ module.exports = {
       'gradient-to-bl':
         'linear-gradient(to bottom left, var(--tw-gradient-stops))',
       'gradient-to-l': 'linear-gradient(to left, var(--tw-gradient-stops))',
-      'gradient-to-tl': 'linear-gradient(to top left, var(--tw-gradient-stops))'
+      'gradient-to-tl':
+        'linear-gradient(to top left, var(--tw-gradient-stops))',
+      'header-pattern': "url('~@/assets/img/pattern-bg.png')"
     },
     backgroundOpacity: theme => theme('opacity'),
     backgroundPosition: {
@@ -172,6 +174,7 @@ module.exports = {
     },
     fontFamily: {
       sans: [
+        'Rubik',
         'ui-sans-serif',
         'system-ui',
         '-apple-system',
