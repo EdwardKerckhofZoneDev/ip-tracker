@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.4](https://github.com/EdwardKerckhofZoneDev/ip-tracker/compare/v1.0.3...v1.0.4) (2021-02-15)
+
+
+### Bug Fixes
+
+* .htaccess for HTTPS ([8310910](https://github.com/EdwardKerckhofZoneDev/ip-tracker/commit/8310910fc4e53a64f50ab577fbbee4aa471c6b35))
+
 ### [1.0.3](https://github.com/EdwardKerckhofZoneDev/ip-tracker/compare/v1.0.1...v1.0.3) (2021-02-15)
 
 
