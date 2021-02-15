@@ -1,6 +1,6 @@
 <template>
   <div
-    class="container mx-auto flex bg-white rounded-3xl py-9 justify-between shadow-xl -mt-24"
+    class="container mx-auto flex bg-white rounded-3xl py-9 justify-between shadow-xl relative z-50"
   >
     <div class="info">
       <h5 class="info-title">Ip address</h5>

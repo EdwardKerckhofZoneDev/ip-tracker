@@ -13,6 +13,7 @@
   },
   "main": "background.js",
   "dependencies": {
+    "@googlemaps/js-api-loader": "^1.11.1",
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "autoprefixer": "^9",
     "core-js": "^3.6.5",
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "@types/electron-devtools-installer": "^2.2.0",
+    "@types/googlemaps": "^3.43.3",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
     "@vue/cli-plugin-babel": "~4.5.0",
